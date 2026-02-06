@@ -8,23 +8,25 @@
 */
 
 //Hopefully this is enough with the information that i have
-function Food(type, name, value) {
-    this.Type  = type  || "None"
-    this.Name  = name  || "NewFood" //quick pretend this is readable
-    this.Value = value || 0 
-    this.Eaten = false
+class Food {
+    constructor(type, name, value) {
+        this.Type  = type  || "None"
+        this.Name  = name  || "NewFood" //quick pretend this is readable
+        this.Value = value || 0 
+        this.Eaten = false
+    }
 
     //wow this is so easily readable and im not completely misunderstanding the entire concept of code readability
-    this.SetType  = function(newType)  { this.Type  = newType  }
-    this.SetName  = function(newName)  { this.Name  = newName  }
-    this.SetValue = function(newValue) { this.Value = newValue }
-    this.GetType  = function()         { return this.Type  }
-    this.GetName  = function()         { return this.Name  }
-    this.GetValue = function()         { return this.Value }
-    this.IsEaten  = function()         { return this.Eaten }
+    SetType(newType)   { if (newType)  { this.Type  = newType  } }
+    SetName(newName)   { if (newName)  { this.Name  = newName  } }
+    SetValue(newValue) { if (newValue) { this.Value = newValue } }
+    GetType()          { return this.Type  }
+    GetName()          { return this.Name  }
+    GetValue()         { return this.Value }
+    IsEaten()          { return this.Eaten }
 
     //makes the pet eat the food, returns the food's value or 0 if it's already eaten
-    this.Eat = function() { //oh god please help me this better not all be in here
+    Eat() { //oh god please help me this better not all be in here
         if (this.Eaten) {
             return 0
         }
@@ -32,7 +34,7 @@ function Food(type, name, value) {
         return this.Value
     }
 
-    this.toString = function() {
+    toString() {
         let output = ""
 
         output += this.Name + ": \n"
@@ -42,6 +44,4 @@ function Food(type, name, value) {
         
         return output
     }
-  
-    return this //okay its starting to make sense (pray that this is actually how you do objects in this god forsaken language)
 }

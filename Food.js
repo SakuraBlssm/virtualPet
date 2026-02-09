@@ -16,6 +16,7 @@ class Food {
         this.Eaten = false
     }
 
+    //getter and setter methods
     //wow this is so easily readable and im not completely misunderstanding the entire concept of code readability
     SetType(newType)   { if (newType)  { this.Type  = newType  } }
     SetName(newName)   { if (newName)  { this.Name  = newName  } }
@@ -26,7 +27,7 @@ class Food {
     IsEaten()          { return this.Eaten }
 
     //makes the pet eat the food, returns the food's value or 0 if it's already eaten
-    Eat() { //oh god please help me this better not all be in here
+    Eat() {
         if (this.Eaten) {
             return 0
         }
@@ -34,6 +35,7 @@ class Food {
         return this.Value
     }
 
+    //converts the food object into a readable string for testing or something
     toString() {
         let output = ""
 
@@ -44,4 +46,5 @@ class Food {
         
         return output
     }
+
 }
